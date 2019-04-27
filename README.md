@@ -3,7 +3,9 @@ Simulation of prestressed concrete beam under cyclic load
 
 ## Initialisation
 
-Defintion of the test beam
+Defintion of the test beam. Every test beam has a specific numnber of strands with a specific number of wires each.
+Every wire already underwent fatigue from previous loads before the experiment.
+
 ```
 nr_wires = 35
 nr_strands = 5
