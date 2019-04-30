@@ -31,6 +31,11 @@ exp = Experiment(id='SB01', stress_range_0=200, fctm=3.89,
                  wires=wires)
 ```
 
+Change of settings:
+```
+exp.lambda_fatigue = 0.2e-1
+exp.lambda_fatigue_friction = 0.5e1
+```
 
 ## Running an Experiment
 
