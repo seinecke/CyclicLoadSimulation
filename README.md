@@ -31,7 +31,7 @@ exp = Experiment(id='SB01', stress_range_0=200, fctm=3.89,
                  wires=wires)
 ```
 
-Change of settings:
+Change of settings (if not specified, defaults will be used):
 ```
 exp.lambda_fatigue = 0.2e-1
 exp.lambda_fatigue_friction = 0.5e1
@@ -39,7 +39,7 @@ exp.lambda_fatigue_friction = 0.5e1
 
 ## Running an Experiment
 
-The experiment is stopped when more than 20 wires are broken or after 6 million load cycles.
+In this example, the experiment is stopped when more than 20 wires are broken or after 6 million load cycles.
 Every load cycles is simulated:
 - A new fatigue value for each wire is assigned
 - (New) Broken wires are determined based on fatigue values
