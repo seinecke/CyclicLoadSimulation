@@ -42,12 +42,6 @@ Every load cycles is simulated:
 - In case a new wire broke, the experiment needs to be updated
 
 ```
-cycle = 0
-
-while (exp.nr_broken < 20) and (cycle < 6e6):
-    cycle += 1
-    update_exp = exp.update_wires()
-    
-    if update_exp:
-        exp.update_experiment(cycle)
+while (exp.nr_broken < 20) and (exp.nr_cycles < 6e6):
+    exp.update_wires()
 ```
