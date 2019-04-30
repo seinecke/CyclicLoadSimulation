@@ -34,7 +34,8 @@ exp = Experiment(id='SB01', stress_range_0=200, fctm=3.89,
 Change of settings (if not specified, defaults will be used):
 ```
 exp.lambda_fatigue = 0.2e-1
-exp.lambda_fatigue_friction = 0.5e1
+exp.lambda_fatigue_fretting_crack = 0.5e1
+exp.lambda_fatigue_fretting_stree = 0.5e1
 ```
 
 ## Running an Experiment
