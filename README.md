@@ -20,7 +20,7 @@ wires = [Wire(i, True, True, np.random.normal(mu_fatigue_initial, sigm_fatigue_i
 wires += [Wire(i, False, True, np.random.normal(mu_fatigue_initial, sigm_fatigue_initial)) 
          for i in range(nr_strands,nr_strands+6)]
 # outer strand
-wires += [Wire(i, False, True, np.random.normal(mu_fatigue_initial, sigm_fatigue_initial)) 
+wires += [Wire(i, False, False, np.random.normal(mu_fatigue_initial, sigm_fatigue_initial)) 
          for i in range(nr_strands+6,nr_wires)]
 ```
 
