@@ -37,9 +37,9 @@ class Experiment:
         self.arr = []
         self.fctm = fctm # in MPA
         self.wires = wires
-        self.lambda_fatigue_fretting_crack = 1
-        self.lambda_fatigue_fretting_stress = 0.1
-        self.lambda_fatigue = 0.04
+        self.lambda_fatigue_fretting_crack = 5e-7
+        self.lambda_fatigue_fretting_stress = 5e-8
+        self.lambda_fatigue = 3e-7
         
     def update_wires(self):
         """Method to update all wires.
@@ -147,7 +147,8 @@ class Wire:
                                                     lambda_fatigue
                                                     )
                             - self.calc_fatigue_fretting(
-                                                    crack_width, 
+                                                    crack_width,
+                                                    stress_range, 
                                                     lambda_fatigue_fretting_crack, 
                                                     lambda_fatigue_stress
                                                     ) 
@@ -160,6 +161,7 @@ class Wire:
             
     def calc_fatigue_fretting(self, 
                               crack_width, 
+                              stress_range, 
                               lambda_fatigue_fretting_crack, 
                               lambda_fatigue_fretting_stress):
         """Method to calculate the fretting.
@@ -175,9 +177,9 @@ class Wire:
             return 0
         else:
             fretting_crack = np.random.exponential(
-                lambda_fatigue_fretting_crack / crack_width)
+                lambda_fatigue_fretting_crack * crack_width)
             fretting_stress = np.random.exponential(
-                lambda_fatigue_fretting_stress / stress_range)
+                lambda_fatigue_fretting_stress * stress_range)
             return fretting_crack + fretting_stress
            
     def calc_fatigue_exp(self, stress_range, lambda_fatigue):
@@ -189,4 +191,4 @@ class Wire:
         fatigue: float
             The fatigue for one cycle. 
         """
-        return np.random.exponential(lambda_fatigue / stress_range)
+        return np.random.exponential(lambda_fatigue * stress_range)
